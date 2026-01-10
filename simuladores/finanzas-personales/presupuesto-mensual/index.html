@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Presupuesto Mensual | Finanzas Personales</title>
+  <meta name="description" content="Simula tu presupuesto mensual, analiza tus gastos y descubre si puedes ahorrar de forma realista.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="container">
+  <h1>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120">
+        <!-- FONDO -->
+        <rect width="420" height="120" fill="#0f172a"/>
+        <!-- ICONO -->
+        <g transform="translate(20,20)">
+            <!-- Marco / simulación -->
+            <rect x="0" y="0" width="80" height="80" rx="16"
+                fill="none"
+                stroke="#2d89ef"
+                stroke-width="4"/>
+            <!-- Línea de crecimiento -->
+            <path d="M18 54 L34 40 L48 46 L62 28"
+                fill="none"
+                stroke="#2d89ef"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </g>
+        <!-- TEXTO -->
+        <text x="150" y="78"
+                fill="#ffffff"
+                font-size="52"
+                font-weight="600"
+                letter-spacing="2"
+                font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, 
+                            'Segoe UI', Roboto, Arial, sans-serif">
+            SimuFin
+        </text>
+    </svg>
+  </h1>
+  <h1>Simulador de Presupuesto Mensual</h1>
+  <p class="descripcion">
+    Analiza tus ingresos y gastos para saber si tu presupuesto es saludable.
+  </p>
+
+  <!-- INGRESOS -->
+  <section class="card">
+    <h2>Ingresos</h2>
+    <label>Ingreso mensual</label>
+    <input type="number" id="ingreso" placeholder="Ej. 8000">
+
+    <label>Ingresos extra</label>
+    <input type="number" id="extra" placeholder="Ej. 500">
+  </section>
+  <!-- GASTOS -->
+  <section class="card">
+    <h2>Gastos</h2>
+
+    <label>Vivienda</label>
+    <input type="number" id="vivienda">
+
+    <label>Alimentación</label>
+    <input type="number" id="alimentacion">
+
+    <label>Transporte</label>
+    <input type="number" id="transporte">
+
+    <label>Servicios</label>
+    <input type="number" id="servicios">
+
+    <label>Entretenimiento</label>
+    <input type="number" id="entretenimiento">
+
+    <label>Otros</label>
+    <input type="number" id="otros">
+  </section>
+
+  <!-- AHORRO -->
+  <section class="card">
+    <h2>Ahorro</h2>
+    <label>Ahorro mensual deseado</label>
+    <input type="number" id="ahorro" placeholder="Ej. 1000">
+  </section>
+
+  <button class="btn" onclick="simularPresupuesto()">Simular presupuesto</button>
+  
+  <!-- RESULTADO -->
+  <section id="resultado" class="card resultado"></section>
+
+  <!-- ESPACIO PUBLICITARIO -->
+  <div class="ad-box">Espacio publicitario</div>
+
+  <!-- EDUCACIÓN -->
+  <section class="educativo">
+    <h3>¿Por qué es importante un presupuesto?</h3>
+    <p>
+      Un presupuesto mensual te ayuda a controlar tus gastos, evitar deudas y
+      planear tu ahorro. Se recomienda que los gastos no superen el 70–80% de
+      los ingresos.
+    </p>
+  </section>
+ <!-- ESPACIO PUBLICITARIO -->
+  <div class="ad-box">Espacio publicitario</div>
+</main>
+<footer class="footer">
+  <p>© SimuFin Simuladores Financieros Interactivos</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

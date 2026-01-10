@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Simuladores Financieros Gratis | Aprende Finanzas Prácticas - SimuFin</title>
+  <meta name="description" content="Plataforma educativa con simuladores financieros 100% gratuitos. Aprende finanzas personales, trading y negocios con herramientas prácticas sin riesgo.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Simuladores Financieros Gratis | SimuFin">
+  <meta property="og:description" content="Aprende finanzas con simuladores interactivos 100% gratuitos">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://simufin.com/">
+  <meta property="og:image" content="https://simufin.com/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "SimuFin",
+    "url": "https://simufin.com",
+    "logo": "https://simufin.com/logo.png",
+    "description": "Plataforma educativa de simuladores financieros gratuitos",
+    "educationalCredentialAwarded": "Financial Literacy"
+  }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="canonical" href="https://simufin.com/">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo">
+        <span>SimuFin</span>
+      </a>
+
+      <!-- Hamburger -->
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Menu -->
+      <ul class="nav-menu" id="navMenu">
+
+        <li class="nav-item">
+          <a href="index.html" class="nav-link active">Inicio</a>
+        </li>
+
+        <!-- Dropdown Simuladores -->
+        <li class="nav-item dropdown">
+          <a href="simuladores/index.html" class="nav-link dropdown-toggle">
+            Simuladores
+          </a>
+
+          <div class="dropdown-menu">
+            <a href="simuladores/finanzas-personales/index.html" class="dropdown-item">
+              <span class="dropdown-icon">💰</span>
+              Finanzas Personales
+            </a>
+
+            <a href="/simuladores/trading-bolsa/" class="dropdown-item">
+              <span class="dropdown-icon">📈</span>
+              Trading & Bolsa
+            </a>
+
+            <a href="/simuladores/inversiones-largo-plazo/" class="dropdown-item">
+              <span class="dropdown-icon">🏦</span>
+              Inversiones
+            </a>
+
+            <a href="/simuladores/inversiones-largo-plazo/" class="dropdown-item">
+              <span class="dropdown-icon">🎯</span>
+              Ahorro & Metas
+            </a>
+
+            <div class="dropdown-divider"></div>
+
+            <a href="simuladores/index.html" class="dropdown-item">
+              <span class="dropdown-icon">📋</span>
+              Ver Todos
+            </a>
+          </div>
+        </li>
+
+        <!-- Dropdown Recursos -->
+        <li class="nav-item dropdown">
+          <a href="/recursos/" class="nav-link dropdown-toggle">
+            Recursos
+          </a>
+
+          <div class="dropdown-menu">
+            <a href="/recursos/" class="dropdown-item">
+              <span class="dropdown-icon">📚</span>
+              Guías y Artículos
+            </a>
+
+            <a href="/herramientas-gratis/" class="dropdown-item">
+              <span class="dropdown-icon">🎁</span>
+              Plantillas Gratis
+            </a>
+
+            <a href="/faq/" class="dropdown-item">
+              <span class="dropdown-icon">❓</span>
+              Preguntas Frecuentes
+            </a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="contacto/index.html" class="nav-link">Contacto</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="logo-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" aria-label="Logo SimuFin">
+        <rect width="420" height="120" fill="#0f172a"/>
+
+        <g transform="translate(20,20)">
+          <rect
+            x="0"
+            y="0"
+            width="80"
+            height="80"
+            rx="16"
+            fill="none"
+            stroke="#2d89ef"
+            stroke-width="4"
+          />
+          <path
+            d="M18 54 L34 40 L48 46 L62 28"
+            fill="none"
+            stroke="#2d89ef"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </g>
+
+        <text
+          x="150"
+          y="78"
+          fill="#ffffff"
+          font-size="52"
+          font-weight="600"
+          letter-spacing="2"
+          font-family="Inter, system-ui, sans-serif"
+        >
+          SimuFin
+        </text>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="fade-in-up">
+        <span class="highlight">Simuladores Financieros</span> Interactivos
+      </h1>
+
+      <p class="subtitle fade-in-up">
+        Aprende a tomar mejores decisiones económicas usando simuladores reales, rápidos, 100% gratis y sin riesgo.
+      </p>
+
+      <div class="cta-buttons fade-in-up">
+        <a href="simuladores/index.html" class="btn">Explorar Simuladores</a>
+        <a href="#beneficios" class="btn btn-sec">Conocer Beneficios</a>
+      </div>
+    </div>
+  </header>
+
+  <aside class="container ad-container">
+    <div class="ad-box ad-box-large">
+      <span>Espacio publicitario</span>
+    </div>
+  </aside>
+
+  <main class="container">
+
+    <section id="beneficios" class="beneficios">
+      <h2>¿Por qué aprender con nuestros simuladores?</h2>
+
+      <div class="beneficios-grid">
+
+        <article class="beneficio fade-in-up">
+          <div class="beneficio-icon">💰</div>
+          <h3>Completamente Gratis</h3>
+          <p>Accede a todos los simuladores sin costo alguno. Educación financiera accesible para todos.</p>
+        </article>
+
+        <article class="beneficio fade-in-up">
+          <div class="beneficio-icon">⚡</div>
+          <h3>Resultados Inmediatos</h3>
+          <p>Obtén análisis y proyecciones al instante. Sin esperas, solo aprendizaje práctico.</p>
+        </article>
+
+        <article class="beneficio fade-in-up">
+          <div class="beneficio-icon">🎯</div>
+          <h3>Enfoque Práctico</h3>
+          <p>Aprende con ejemplos reales y casos prácticos que puedes aplicar en tu vida diaria.</p>
+        </article>
+
+        <article class="beneficio fade-in-up">
+          <div class="beneficio-icon">🔄</div>
+          <h3>Simulaciones Ilimitadas</h3>
+          <p>Prueba diferentes escenarios cuantas veces quieras. Aprende por repetición sin límites.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="educativo">
+      <h2>Finanzas personales de forma sencilla</h2>
+
+      <p>
+        Esta plataforma está diseñada para <strong>estudiantes</strong> y
+        <strong>personas que desean mejorar su educación financiera</strong>
+        mediante simuladores prácticos. Nuestro objetivo es democratizar el acceso al conocimiento financiero.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Gratuito</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">24/7</span>
+          <span class="stat-label">Disponible</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">0</span>
+          <span class="stat-label">Riesgo</span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="ad-container">
+      <div class="ad-box">Espacio publicitario</div>
+    </aside>
+
+    <section class="categorias-preview">
+      <h2>¿Qué quieres aprender hoy?</h2>
+      <p>Explora nuestras categorías principales y comienza tu camino hacia la libertad financiera.</p>
+
+      <div class="categorias-mini-grid">
+        <a href="/simuladores/finanzas-personales/" class="categoria-mini-card">
+          <span class="categoria-mini-icon">💰</span>
+          <span class="categoria-mini-title">Finanzas Personales</span>
+        </a>
+
+        <a href="/simuladores/trading-bolsa/" class="categoria-mini-card">
+          <span class="categoria-mini-icon">📈</span>
+          <span class="categoria-mini-title">Trading & Bolsa</span>
+        </a>
+
+        <a href="/simuladores/inversiones-largo-plazo/" class="categoria-mini-card">
+          <span class="categoria-mini-icon">🏦</span>
+          <span class="categoria-mini-title">Inversiones</span>
+        </a>
+
+        <a href="/simuladores/inversiones-largo-plazo/" class="categoria-mini-card">
+          <span class="categoria-mini-icon">🎯</span>
+          <span class="categoria-mini-title">Ahorro & Metas</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <aside class="container ad-container">
+    <div class="ad-box">Espacio publicitario</div>
+  </aside>
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-content">
+
+        <div class="footer-brand">
+          <p>Educación financiera accesible para todos.</p>
+        </div>
+
+        <nav class="footer-nav">
+          <h3>Simuladores</h3>
+          <ul>
+            <li><a href="/simuladores/finanzas-personales/">Finanzas Personales</a></li>
+            <li><a href="/simuladores/trading-bolsa/">Trading & Bolsa</a></li>
+            <li><a href="/simuladores/inversiones-largo-plazo/">Inversiones</a></li>
+            <li><a href="/simuladores/inversiones-largo-plazo/">Ahorro & Metas</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav">
+          <h3>Recursos</h3>
+          <ul>
+            <li><a href="/recursos/">Guías y Artículos</a></li>
+            <li><a href="/herramientas-gratis/">Plantillas Gratis</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/aviso-legal/">Aviso Legal</a></li>
+            <li><a href="/privacidad/">Privacidad</a></li>
+            <li><a href="/contacto/">Contacto</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 SimuFin, Simuladores Financieros. Todos los derechos reservados.</p>
+        <p class="disclaimer">
+          Descargo:Los simuladores son para fines educativos. No constituyen asesoramiento financiero.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="assets/js/navbar.js"></script>
+
+</body>
+</html>
