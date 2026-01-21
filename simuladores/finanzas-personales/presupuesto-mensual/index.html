@@ -2,113 +2,409 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Simulador de Presupuesto Mensual | Finanzas Personales</title>
-  <meta name="description" content="Simula tu presupuesto mensual, analiza tus gastos y descubre si puedes ahorrar de forma realista.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Calculadora de Presupuesto Mensual Gratis | SimuFin</title>
+  <meta name="description" content="Crea tu presupuesto mensual en minutos. Calcula tus ingresos, gastos fijos y variables para ver cuánto te queda disponible cada mes.">
+  <meta name="robots" content="index, follow">
+  
+  <link rel="canonical" href="https://simufin.com/simuladores/finanzas-personales/presupuesto-mensual/">
+  <link rel="stylesheet" href="../../../assets/css/global.css">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
-<main class="container">
-  <h1>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120">
-        <!-- FONDO -->
-        <rect width="420" height="120" fill="#0f172a"/>
-        <!-- ICONO -->
-        <g transform="translate(20,20)">
-            <!-- Marco / simulación -->
-            <rect x="0" y="0" width="80" height="80" rx="16"
-                fill="none"
-                stroke="#2d89ef"
-                stroke-width="4"/>
-            <!-- Línea de crecimiento -->
-            <path d="M18 54 L34 40 L48 46 L62 28"
-                fill="none"
-                stroke="#2d89ef"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"/>
-        </g>
-        <!-- TEXTO -->
-        <text x="150" y="78"
-                fill="#ffffff"
-                font-size="52"
-                font-weight="600"
-                letter-spacing="2"
-                font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, 
-                            'Segoe UI', Roboto, Arial, sans-serif">
-            SimuFin
-        </text>
-    </svg>
-  </h1>
-  <h1>Simulador de Presupuesto Mensual</h1>
-  <p class="descripcion">
-    Analiza tus ingresos y gastos para saber si tu presupuesto es saludable.
-  </p>
-
-  <!-- INGRESOS -->
-  <section class="card">
-    <h2>Ingresos</h2>
-    <label>Ingreso mensual</label>
-    <input type="number" id="ingreso" placeholder="Ej. 8000">
-
-    <label>Ingresos extra</label>
-    <input type="number" id="extra" placeholder="Ej. 500">
-  </section>
-  <!-- GASTOS -->
-  <section class="card">
-    <h2>Gastos</h2>
-
-    <label>Vivienda</label>
-    <input type="number" id="vivienda">
-
-    <label>Alimentación</label>
-    <input type="number" id="alimentacion">
-
-    <label>Transporte</label>
-    <input type="number" id="transporte">
-
-    <label>Servicios</label>
-    <input type="number" id="servicios">
-
-    <label>Entretenimiento</label>
-    <input type="number" id="entretenimiento">
-
-    <label>Otros</label>
-    <input type="number" id="otros">
-  </section>
-
-  <!-- AHORRO -->
-  <section class="card">
-    <h2>Ahorro</h2>
-    <label>Ahorro mensual deseado</label>
-    <input type="number" id="ahorro" placeholder="Ej. 1000">
-  </section>
-
-  <button class="btn" onclick="simularPresupuesto()">Simular presupuesto</button>
   
-  <!-- RESULTADO -->
-  <section id="resultado" class="card resultado"></section>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../../../index.html" class="nav-logo">
+        <span>SimuFin</span>
+      </a>
+      
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="../../../index.html" class="nav-link">Inicio</a>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a href="../../index.html" class="nav-link dropdown-toggle active">
+            Simuladores
+          </a>
+          <div class="dropdown-menu">
+            <a href="../index.html" class="dropdown-item active">
+              <span class="dropdown-icon">💰</span>
+              Finanzas Personales
+            </a>
+            <a href="/simuladores/trading-bolsa/" class="dropdown-item">
+              <span class="dropdown-icon">📈</span>
+              Trading & Bolsa
+            </a>
+            <a href="/simuladores/inversiones-largo-plazo/" class="dropdown-item">
+              <span class="dropdown-icon">🏦</span>
+              Inversiones
+            </a>
+            <a href="/simuladores/ahorro-metas/" class="dropdown-item">
+              <span class="dropdown-icon">🎯</span>
+              Ahorro & Metas
+            </a>
+          </div>
+        </li>
+        
+        <li class="nav-item">
+          <a href="/contacto/" class="nav-link">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-  <!-- ESPACIO PUBLICITARIO -->
-  <div class="ad-box">Espacio publicitario</div>
+  <!-- HEADER -->
+  <header class="hero">
+    <div class="container fade-in-up">
+      <h1><span class="highlight">Presupuesto Mensual Simple</span></h1>
+      <p class="subtitle">Crea tu presupuesto en minutos y toma control de tu dinero</p>
+    </div>
+  </header>
 
-  <!-- EDUCACIÓN -->
-  <section class="educativo">
-    <h3>¿Por qué es importante un presupuesto?</h3>
-    <p>
-      Un presupuesto mensual te ayuda a controlar tus gastos, evitar deudas y
-      planear tu ahorro. Se recomienda que los gastos no superen el 70–80% de
-      los ingresos.
-    </p>
-  </section>
- <!-- ESPACIO PUBLICITARIO -->
-  <div class="ad-box">Espacio publicitario</div>
-</main>
-<footer class="footer">
-  <p>© SimuFin Simuladores Financieros Interactivos</p>
-</footer>
+  <!-- MAIN CONTENT -->
+  <main class="container">
 
-<script src="script.js"></script>
+    <!-- INTRO -->
+    <section class="guia-intro">
+      <p>Ingresa tus <strong>ingresos mensuales</strong> y tus <strong>gastos fijos y variables</strong> para descubrir cuánto dinero te queda disponible cada mes. Obtén recomendaciones automáticas basadas en tu situación financiera.</p>
+    </section>
+
+    <!-- ANUNCIO -->
+    <aside class="ad-container">
+      <div class="ad-box ad-box-large">
+        <span>Espacio publicitario</span>
+      </div>
+    </aside>
+
+    <!-- CALCULADORA -->
+    <section class="calculadora-wrapper">
+      
+      <div class="calculadora-card">
+        <div class="card-header">
+          <h2>💰 Ingresos Mensuales</h2>
+        </div>
+        
+        <div class="form-group">
+          <label for="salario">Salario/Sueldo Neto</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="salario" placeholder="0" min="0" step="100">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="otros-ingresos">Otros Ingresos (freelance, rentas, etc.)</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="otros-ingresos" placeholder="0" min="0" step="100">
+          </div>
+        </div>
+
+        <div class="subtotal-box ingreso">
+          <span>Total Ingresos:</span>
+          <strong id="total-ingresos">$0</strong>
+        </div>
+      </div>
+
+      <div class="calculadora-card">
+        <div class="card-header">
+          <h2>🏠 Gastos Fijos Mensuales</h2>
+        </div>
+        
+        <div class="form-group">
+          <label for="renta">Renta/Hipoteca</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="renta" placeholder="0" min="0" step="100">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="servicios">Servicios (luz, agua, gas, internet)</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="servicios" placeholder="0" min="0" step="100">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="transporte">Transporte (gasolina, transporte público)</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="transporte" placeholder="0" min="0" step="100">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="seguros">Seguros y suscripciones</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="seguros" placeholder="0" min="0" step="100">
+          </div>
+        </div>
+
+        <div class="subtotal-box gasto">
+          <span>Total Gastos Fijos:</span>
+          <strong id="total-fijos">$0</strong>
+        </div>
+      </div>
+
+      <div class="calculadora-card">
+        <div class="card-header">
+          <h2>🛒 Gastos Variables Mensuales</h2>
+        </div>
+        
+        <div class="form-group">
+          <label for="comida">Comida y supermercado</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="comida" placeholder="0" min="0" step="100">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="entretenimiento">Entretenimiento y ocio</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="entretenimiento" placeholder="0" min="0" step="100">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="personal">Gastos personales</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="personal" placeholder="0" min="0" step="100">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="otros-gastos">Otros gastos variables</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="otros-gastos" placeholder="0" min="0" step="100">
+          </div>
+        </div>
+
+        <div class="subtotal-box gasto">
+          <span>Total Gastos Variables:</span>
+          <strong id="total-variables">$0</strong>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-calc" id="calcular">Calcular Presupuesto</button>
+
+      <div id="mensaje-alerta" class="mensaje-alerta" style="display:none;"></div>
+
+    </section>
+
+    <!-- RESULTADOS -->
+    <section class="resultados" id="resultados" style="display: none;">
+      
+      <div class="resultado-principal">
+        <h2>💰 Tu Balance Mensual</h2>
+        <div class="resultado-grid">
+          <div class="resultado-item">
+            <span class="resultado-label">Ingresos Totales</span>
+            <span class="resultado-valor positivo" id="res-ingresos">$0</span>
+          </div>
+          <div class="resultado-item">
+            <span class="resultado-label">Gastos Totales</span>
+            <span class="resultado-valor negativo" id="res-gastos">$0</span>
+          </div>
+          <div class="resultado-item destacado">
+            <span class="resultado-label">Balance Disponible</span>
+            <span class="resultado-valor" id="res-balance">$0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="distribucion-section">
+        <h3>📊 Distribución de Gastos</h3>
+        <div class="distribucion-items">
+          <div class="dist-item">
+            <div class="dist-header">
+              <span>Gastos Fijos</span>
+              <span class="dist-porcentaje" id="porc-fijos">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill fijos" id="bar-fijos"></div>
+            </div>
+            <span class="dist-monto" id="monto-fijos">$0</span>
+          </div>
+          
+          <div class="dist-item">
+            <div class="dist-header">
+              <span>Gastos Variables</span>
+              <span class="dist-porcentaje" id="porc-variables">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill variables" id="bar-variables"></div>
+            </div>
+            <span class="dist-monto" id="monto-variables">$0</span>
+          </div>
+          
+          <div class="dist-item">
+            <div class="dist-header">
+              <span>Disponible/Ahorro</span>
+              <span class="dist-porcentaje" id="porc-disponible">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill disponible" id="bar-disponible"></div>
+            </div>
+            <span class="dist-monto" id="monto-disponible">$0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recomendaciones-section">
+        <h3>💡 Recomendaciones Automáticas</h3>
+        <div id="recomendaciones-content"></div>
+      </div>
+
+    </section>
+
+    <!-- ANUNCIO -->
+    <aside class="ad-container">
+      <div class="ad-box">
+        <span>Espacio publicitario</span>
+      </div>
+    </aside>
+
+    <!-- CÓMO FUNCIONA -->
+    <section class="guia-uso">
+      <h2>¿Cómo usar el Presupuesto Mensual?</h2>
+      
+      <div class="pasos-grid">
+        <div class="paso-item">
+          <div class="paso-numero">1</div>
+          <h3>Registra tus Ingresos</h3>
+          <p>Suma todos los ingresos que recibes cada mes: salario, rentas, trabajos extra, etc. Considera solo el dinero neto que realmente llega a tu bolsillo.</p>
+        </div>
+
+        <div class="paso-item">
+          <div class="paso-numero">2</div>
+          <h3>Anota tus Gastos Fijos</h3>
+          <p>Son los gastos que pagas sí o sí cada mes y suelen ser del mismo monto: renta, servicios, seguros, transporte regular.</p>
+        </div>
+
+        <div class="paso-item">
+          <div class="paso-numero">3</div>
+          <h3>Calcula Gastos Variables</h3>
+          <p>Estos gastos cambian mes a mes según tu estilo de vida: comida, entretenimiento, ropa, salidas. Usa un promedio de los últimos 3 meses.</p>
+        </div>
+
+        <div class="paso-item">
+          <div class="paso-numero">4</div>
+          <h3>Revisa tu Balance</h3>
+          <p>La diferencia entre ingresos y gastos es tu capacidad de ahorro. Idealmente debería ser al menos 10-20% de tus ingresos totales.</p>
+        </div>
+      </div>
+
+      <div class="consejos-box">
+        <h3>💡 Consejos para un Presupuesto Saludable</h3>
+        <ul>
+          <li><strong>Regla 50/30/20:</strong> 50% necesidades, 30% gustos, 20% ahorro</li>
+          <li><strong>Gastos fijos ideales:</strong> No más del 50% de tus ingresos</li>
+          <li><strong>Ahorro mínimo:</strong> Al menos 10% de tus ingresos mensuales</li>
+          <li><strong>Fondo de emergencia:</strong> Meta inicial de 3-6 meses de gastos</li>
+        </ul>
+      </div>
+    </section>
+    
+
+    <!-- OTROS SIMULADORES -->
+    <section class="otros-simuladores">
+
+          <!-- ANUNCIO -->
+    <aside class="ad-container">
+      <div class="ad-box">
+        <span>Espacio publicitario</span>
+      </div>
+    </aside>
+      <h2>Continúa planificando tus finanzas</h2>
+      
+      <div class="simuladores-mini-grid">
+        <a href="/simuladores/finanzas-personales/ahorro-mensual/" class="simulador-mini-card">
+          <span class="simulador-mini-icon">💵</span>
+          <h3>Ahorro Mensual Necesario</h3>
+          <p>Calcula cuánto ahorrar para tus metas</p>
+        </a>
+
+        <a href="/simuladores/finanzas-personales/fondo-emergencia/" class="simulador-mini-card">
+          <span class="simulador-mini-icon">🛡️</span>
+          <h3>Fondo de Emergencia</h3>
+          <p>Cuánto guardar para imprevistos</p>
+        </a>
+
+        <a href="/simuladores/finanzas-personales/interes-simple/" class="simulador-mini-card">
+          <span class="simulador-mini-icon">📈</span>
+          <h3>Interés Simple</h3>
+          <p>Calcula intereses de deudas o ahorros</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <p>Educación financiera accesible para todos.</p>
+        </div>
+        
+        <nav class="footer-nav">
+          <h4>Simuladores</h4>
+          <ul>
+            <li><a href="/simuladores/finanzas-personales/">Finanzas Personales</a></li>
+            <li><a href="/simuladores/trading-bolsa/">Trading & Bolsa</a></li>
+            <li><a href="/simuladores/inversiones-largo-plazo/">Inversiones</a></li>
+            <li><a href="/simuladores/ahorro-metas/">Ahorro & Metas</a></li>
+          </ul>
+        </nav>
+        
+        <nav class="footer-nav">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="/recursos/">Guías y Artículos</a></li>
+            <li><a href="/herramientas-gratis/">Plantillas Gratis</a></li>
+          </ul>
+        </nav>
+        
+        <nav class="footer-nav">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/aviso-legal/">Aviso Legal</a></li>
+            <li><a href="/privacidad/">Privacidad</a></li>
+            <li><a href="/contacto/">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 SimuFin, Simuladores Financieros. Todos los derechos reservados.</p>
+        <p class="disclaimer">
+          Descargo: Los simuladores son para fines educativos. No constituyen asesoramiento financiero.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/navbar.js"></script>
+  <script src="script.js"></script>
+
 </body>
 </html>

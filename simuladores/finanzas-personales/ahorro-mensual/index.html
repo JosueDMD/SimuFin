@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Calculadora de Ahorro Mensual Necesario | SimuFin</title>
+  <meta name="description" content="Calcula cuánto necesitas ahorrar cada mes para alcanzar tu meta financiera en el plazo deseado.">
+  <meta name="robots" content="index, follow">
+  
+  <link rel="canonical" href="https://simufin.com/simuladores/finanzas-personales/ahorro-mensual/">
+  <link rel="stylesheet" href="../../../assets/css/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../../../index.html" class="nav-logo">
+        <span>SimuFin</span>
+      </a>
+      
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="../../../index.html" class="nav-link">Inicio</a>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a href="../../index.html" class="nav-link dropdown-toggle active">
+            Simuladores
+          </a>
+          <div class="dropdown-menu">
+            <a href="../index.html" class="dropdown-item active">
+              <span class="dropdown-icon">💰</span>
+              Finanzas Personales
+            </a>
+            <a href="/simuladores/trading-bolsa/" class="dropdown-item">
+              <span class="dropdown-icon">📈</span>
+              Trading & Bolsa
+            </a>
+            <a href="/simuladores/inversiones-largo-plazo/" class="dropdown-item">
+              <span class="dropdown-icon">🏦</span>
+              Inversiones
+            </a>
+            <a href="/simuladores/ahorro-metas/" class="dropdown-item">
+              <span class="dropdown-icon">🎯</span>
+              Ahorro & Metas
+            </a>
+          </div>
+        </li>
+        
+        <li class="nav-item">
+          <a href="/contacto/" class="nav-link">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="hero">
+    <div class="container fade-in-up">
+      <h1><span class="highlight">Ahorro Mensual Necesario</span></h1>
+      <p class="subtitle">Descubre cuánto debes ahorrar cada mes para alcanzar tu meta</p>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- INTRO -->
+    <section class="guia-intro">
+      <p>Ingresa tu <strong>meta de ahorro</strong>, el <strong>plazo en meses</strong> y tu <strong>ahorro actual</strong> para calcular cuánto necesitas guardar cada mes y evaluar si es viable con tus ingresos.</p>
+    </section>
+
+    <!-- ANUNCIO -->
+    <aside class="ad-container">
+      <div class="ad-box ad-box-large">
+        <span>Espacio publicitario</span>
+      </div>
+    </aside>
+
+    <!-- CALCULADORA -->
+    <section class="calculadora-wrapper">
+      
+      <div class="calculadora-card">
+        <div class="card-header">
+          <h2>🎯 Tu Meta de Ahorro</h2>
+        </div>
+        
+        <div class="form-group">
+          <label for="meta">¿Cuánto dinero necesitas?</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="meta" placeholder="50000" min="0" step="1000">
+          </div>
+          <small class="input-hint">Ejemplo: $50,000 para unas vacaciones, $200,000 para un auto</small>
+        </div>
+
+        <div class="form-group">
+          <label for="plazo">¿En cuántos meses quieres lograrlo?</label>
+          <div class="input-wrapper">
+            <input type="number" id="plazo" placeholder="12" min="1" step="1" class="input-no-prefix">
+            <span class="input-suffix">meses</span>
+          </div>
+          <small class="input-hint">Plazo realista: entre 6 y 60 meses</small>
+        </div>
+
+        <div class="form-group">
+          <label for="ahorro-actual">¿Cuánto tienes ahorrado ya? (opcional)</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="ahorro-actual" placeholder="0" min="0" step="1000">
+          </div>
+        </div>
+      </div>
+
+      <div class="calculadora-card">
+        <div class="card-header">
+          <h2>💵 Análisis de Viabilidad (opcional)</h2>
+        </div>
+        
+        <div class="form-group">
+          <label for="ingreso-mensual">Tus ingresos mensuales</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="ingreso-mensual" placeholder="0" min="0" step="1000">
+          </div>
+          <small class="input-hint">Para evaluar si puedes cumplir la meta</small>
+        </div>
+
+        <div class="form-group">
+          <label for="gastos-mensuales">Tus gastos mensuales totales</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="gastos-mensuales" placeholder="0" min="0" step="1000">
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-calc" id="calcular">Calcular Ahorro Necesario</button>
+
+      <div id="mensaje-alerta" class="mensaje-alerta" style="display:none;"></div>
+
+    </section>
+
+    <!-- RESULTADOS -->
+    <section class="resultados" id="resultados" style="display: none;">
+      
+      <div class="resultado-principal">
+        <h2>💰 Tu Plan de Ahorro</h2>
+        <div class="resultado-grid">
+          <div class="resultado-item">
+            <span class="resultado-label">Meta Total</span>
+            <span class="resultado-valor" id="res-meta">$0</span>
+          </div>
+          <div class="resultado-item">
+            <span class="resultado-label">Ya Ahorrado</span>
+            <span class="resultado-valor positivo" id="res-ahorrado">$0</span>
+          </div>
+          <div class="resultado-item">
+            <span class="resultado-label">Falta por Ahorrar</span>
+            <span class="resultado-valor" id="res-falta">$0</span>
+          </div>
+          <div class="resultado-item destacado">
+            <span class="resultado-label">Ahorro Mensual Necesario</span>
+            <span class="resultado-valor" id="res-mensual">$0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="distribucion-section">
+        <h3>📊 Línea de Tiempo</h3>
+        <div class="timeline-info">
+          <div class="timeline-item">
+            <span class="timeline-label">Inicio</span>
+            <span class="timeline-valor" id="fecha-inicio">Hoy</span>
+          </div>
+          <div class="timeline-bar">
+            <div class="timeline-progress" id="timeline-progress"></div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-label">Meta cumplida</span>
+            <span class="timeline-valor" id="fecha-fin">En X meses</span>
+          </div>
+        </div>
+        <div class="plazo-info">
+          <p><strong>Plazo:</strong> <span id="plazo-info">0 meses</span></p>
+          <p><strong>Ahorro semanal aprox.:</strong> <span id="ahorro-semanal">$0</span></p>
+        </div>
+      </div>
+
+      <div class="recomendaciones-section" id="viabilidad-section" style="display: none;">
+        <h3>💡 Análisis de Viabilidad</h3>
+        <div id="viabilidad-content"></div>
+      </div>
+
+    </section>
+
+    <!-- ANUNCIO -->
+    <aside class="ad-container">
+      <div class="ad-box">
+        <span>Espacio publicitario</span>
+      </div>
+    </aside>
+
+    <!-- CÓMO FUNCIONA -->
+    <section class="guia-uso">
+      <h2>¿Cómo funciona la Calculadora?</h2>
+      
+      <div class="pasos-grid">
+        <div class="paso-item">
+          <div class="paso-numero">1</div>
+          <h3>Define tu Meta</h3>
+          <p>Decide cuánto dinero necesitas y para qué: vacaciones, auto, enganche de casa, emergencia, etc.</p>
+        </div>
+
+        <div class="paso-item">
+          <div class="paso-numero">2</div>
+          <h3>Establece el Plazo</h3>
+          <p>¿En cuánto tiempo lo necesitas? Entre más largo el plazo, menor el ahorro mensual necesario.</p>
+        </div>
+
+        <div class="paso-item">
+          <div class="paso-numero">3</div>
+          <h3>Considera lo Ahorrado</h3>
+          <p>Si ya tienes algo guardado, réstalo de la meta para saber cuánto falta realmente por juntar.</p>
+        </div>
+
+        <div class="paso-item">
+          <div class="paso-numero">4</div>
+          <h3>Evalúa Viabilidad</h3>
+          <p>Compara el ahorro mensual necesario con tus ingresos disponibles para ver si es alcanzable.</p>
+        </div>
+      </div>
+
+      <div class="consejos-box">
+        <h3>💡 Consejos para Cumplir tu Meta</h3>
+        <ul>
+          <li><strong>Automatiza:</strong> Programa transferencias automáticas el día de pago</li>
+          <li><strong>Cuenta separada:</strong> Abre una cuenta de ahorro solo para esta meta</li>
+          <li><strong>Ajusta si es necesario:</strong> Si no puedes, extiende el plazo o reduce la meta</li>
+          <li><strong>Celebra hitos:</strong> Festeja cada 25% de avance para mantenerte motivado</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- OTROS SIMULADORES -->
+    <section class="otros-simuladores">
+
+      <!-- ANUNCIO -->
+      <aside class="ad-container">
+        <div class="ad-box">
+          <span>Espacio publicitario</span>
+        </div>
+      </aside>
+
+      <h2>Continúa planificando tus finanzas</h2>
+      
+      <div class="simuladores-mini-grid">
+        <a href="/simuladores/finanzas-personales/presupuesto-mensual/" class="simulador-mini-card">
+          <span class="simulador-mini-icon">📝</span>
+          <h3>Presupuesto Mensual</h3>
+          <p>Crea tu presupuesto básico</p>
+        </a>
+
+        <a href="/simuladores/finanzas-personales/fondo-emergencia/" class="simulador-mini-card">
+          <span class="simulador-mini-icon">🛡️</span>
+          <h3>Fondo de Emergencia</h3>
+          <p>Cuánto guardar para imprevistos</p>
+        </a>
+
+        <a href="/simuladores/finanzas-personales/interes-simple/" class="simulador-mini-card">
+          <span class="simulador-mini-icon">📈</span>
+          <h3>Interés Simple</h3>
+          <p>Calcula intereses de deudas o ahorros</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <p>Educación financiera accesible para todos.</p>
+        </div>
+        
+        <nav class="footer-nav">
+          <h4>Simuladores</h4>
+          <ul>
+            <li><a href="/simuladores/finanzas-personales/">Finanzas Personales</a></li>
+            <li><a href="/simuladores/trading-bolsa/">Trading & Bolsa</a></li>
+            <li><a href="/simuladores/inversiones-largo-plazo/">Inversiones</a></li>
+            <li><a href="/simuladores/ahorro-metas/">Ahorro & Metas</a></li>
+          </ul>
+        </nav>
+        
+        <nav class="footer-nav">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="/recursos/">Guías y Artículos</a></li>
+            <li><a href="/herramientas-gratis/">Plantillas Gratis</a></li>
+          </ul>
+        </nav>
+        
+        <nav class="footer-nav">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/aviso-legal/">Aviso Legal</a></li>
+            <li><a href="/privacidad/">Privacidad</a></li>
+            <li><a href="/contacto/">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 SimuFin, Simuladores Financieros. Todos los derechos reservados.</p>
+        <p class="disclaimer">
+          Descargo: Los simuladores son para fines educativos. No constituyen asesoramiento financiero.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../assets/js/navbar.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
